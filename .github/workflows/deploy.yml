@@ -65,6 +65,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --image ghcr.io/${{ env.OWNER_LC }}/deploy2:${{ needs.makeTagAndRelease.outputs.tag_name }}
+      - run: flyctl deploy --remote-only --image ghcr.io/${{ env.OWNER_LC }}/deploy2:${{ needs.makeTagAndRelease.outputs.tag_name }}
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
