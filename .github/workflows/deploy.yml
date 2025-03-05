@@ -59,7 +59,7 @@ jobs:
             ghcr.io/${{ env.OWNER_LC }}/deploy2:${{ needs.makeTagAndRelease.outputs.tag_name }},
             ghcr.io/${{ env.OWNER_LC }}/deploy2:latest
   deploy:
-    needs: buildImageAndPush
+    needs: [buildImageAndPush, makeTagAndRelease]
     name: Deploy app
     runs-on: ubuntu-latest
     steps:
